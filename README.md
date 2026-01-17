@@ -19,6 +19,7 @@ scripts for SSR callers (TRF, Ultra, PyTRF, and custom finders).
 - Linux
 - Python 3.8+ (recommended)
 - TRF (Tandem Repeats Finder) for `optimize_trf.py`
+- PyTRF for `optimize_pytrf.py`
 - A C++17 compiler (if you want to rebuild `graphSSR`)
 - Common Python packages (depending on scripts): `numpy`, `pandas`
 
@@ -81,6 +82,22 @@ python3 optimize_ultra.py \
   --reuse_sim \
   --calibrate_threshold \
   --output_csv ultra_grid_search_results.csv
+```
+
+### PyTRF parameter optimization
+
+```bash
+python3 optimize_pytrf.py \
+  --min_identity_range "0.7,0.8,0.9" \
+  --max_error_range "1,2,3,4" \
+  --min_seed_repeat_range "2,3,4,5" \
+  --num_replicates 1000 \
+  --max_workers 4 \
+  --seed 1 \
+  --match_mode interval \
+  --reuse_sim \
+  --calibrate_threshold \
+  --output_csv pytrf_grid_search_results.csv
 ```
 
 ## Outputs
