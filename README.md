@@ -12,7 +12,6 @@ scripts for SSR callers (TRF, Ultra, PyTRF, and custom finders).
 - `optimize_trf.py`: parameter optimization for TRF
 - `optimize_ultra.py`: parameter optimization for Ultra
 - `optimize_pytrf.py`: parameter optimization for PyTRF
-- `optimize_finders.py`: multi-finder optimization/benchmarking
 
 ## Requirements
 
