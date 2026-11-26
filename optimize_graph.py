@@ -214,14 +214,15 @@ def compute_counts_by_motif(predictions_by_seq, truth_data, motifs_to_test, over
                         is_matched = True
                         break
 
+                # Period affects match eligibility. Every unmatched prediction counts as an FP.
                 if is_matched:
                     tp += 1
-                    fp += max(0, sum(1 for p in preds if required_period is None or p.get('period') == required_period) - 1)
+                    fp += len(preds) - 1
                 else:
                     fn += 1
-                    fp += sum(1 for p in preds if required_period is None or p.get('period') == required_period)
+                    fp += len(preds)
             else:
-                fp += sum(1 for p in preds if required_period is None or p.get('period') == required_period)
+                fp += len(preds)
 
         counts_by_motif[motif_type] = {'tp': tp, 'fp': fp, 'fn': fn}
 
